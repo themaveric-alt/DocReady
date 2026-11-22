@@ -43,7 +43,7 @@ export default function PdfWorkstation() {
         <h2 id="pdf-workstation-title">Every PDF tool,<br className="suite-heading-break" /> clearly grouped.</h2>
         <p>Your files. Your device. A little less document chaos.<br />Every tool is free to use, including advanced capabilities.</p>
       </div>
-      <Link className="suite-studio-link" to="/workspace/pdf">Open PDF Studio <span aria-hidden="true">→</span></Link>
+      <Link className="suite-studio-link" to="/workspace/pdf">Open PDF Tools <span aria-hidden="true">→</span></Link>
     </div>
     <div className="suite-filters" role="group" aria-label="Filter PDF tool categories">{filters.map((item,i) => <button key={item.label} aria-pressed={filter === i} onClick={() => setFilter(i)} aria-controls="suite-results">{item.label}</button>)}</div>
     <p className="suite-filter-status" role="status">{filter === 0 ? 'All seven categories' : filters[filter].label} · All tools remain free to use</p>

@@ -1,1 +1,6 @@
-{"repository":"themaveric-alt/DocReady","downloadUrl":null,"releasesUrl":"https://github.com/themaveric-alt/DocReady/releases/latest","verified":false}
+{
+  "repository": "themaveric-alt/DocReady",
+  "downloadUrl": "https://github.com/themaveric-alt/DocReady/releases/latest/download/DocReady_x64-setup.exe",
+  "releasesUrl": "https://github.com/themaveric-alt/DocReady/releases/latest",
+  "verified": true
+}

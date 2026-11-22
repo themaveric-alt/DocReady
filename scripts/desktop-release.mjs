@@ -6,11 +6,12 @@ let result = { repository: null, downloadUrl: null, releasesUrl: null, verified:
 if (repository) {
   if (!/^[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+$/.test(repository)) throw Error('Desktop release repository must be owner/repository.')
   const releasesUrl = `https://github.com/${repository}/releases/latest`
-  result = { repository, downloadUrl: null, releasesUrl, verified: false }
+  result = { repository, downloadUrl: null, releasesUrl: null, verified: false }
   try {
     const response = await fetch(`https://api.github.com/repos/${repository}/releases/latest`, { headers: { Accept: 'application/vnd.github+json' }, signal: AbortSignal.timeout(15000) })
     if (response.ok) {
       const release = await response.json()
+      if (!release.draft && !release.prerelease) result.releasesUrl = releasesUrl
       const asset = release.assets?.find(item => item.name === 'DocReady_x64-setup.exe' && item.state === 'uploaded' && item.size > 0)
       if (!release.draft && !release.prerelease && asset) {
         const downloadUrl = `${releasesUrl}/download/DocReady_x64-setup.exe`

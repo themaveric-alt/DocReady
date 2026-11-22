@@ -24,8 +24,16 @@ After all builds succeed, a separate job with repository contents-write permissi
 
 ## Current blockers and verification
 
-Connected GitHub search returned no DocReady repository. No GitHub destination URL, repository access or published installer is available. The user was asked for the intended repository URL. Therefore no executable download is enabled yet, no tag has been pushed to GitHub, and the release workflow has not run. The Sites Git repository is separate from GitHub Actions.
+The configured GitHub destination is `themaveric-alt/DocReady`. The repository was initially empty. Existing source, required font/icon blobs and desktop build configuration have been synchronized there. Generated npm libraries, the OpenCV runtime and pinned model weights are prepared during CI; the browser runs them locally after packaging. The first source push launches the initial three-OS release build. Normal `v*` tags remain supported. Installer publication and runtime verification are reported separately from workflow configuration.
 
 The existing reader supports reading, zoom, search highlighting, bookmark navigation, rotation and page organization. Full inline text/image editing, a complete annotation ribbon, thumbnails and the properties inspector remain incomplete. This change controls which runtime exposes that reader; it does not establish PDFelement feature parity.
 
 Automated checks cover both runtime markers and ordinary browser contexts. Server-rendered header/hero regression checks cover removal of web reader links and preservation of utilities/Vault access. Production build and static runtime/route/security audits are run before publication. Browser verification was attempted but the browser security policy blocked access to the preview tab. Desktop compilation and installer execution remain unverified in this environment.
+
+## Published release verification
+
+Release `v1.0.0` is published at https://github.com/themaveric-alt/DocReady/releases/tag/v1.0.0. GitHub Actions run `45050571342` completed successfully on Windows, macOS and Linux. Each matrix job passed all 78 tests before native compilation. The initial run failed due to fixture transfer encoding and a configured-link test expectation. The fixture binary bytes were restored and the navigation test now follows the configured release destination.
+
+Uploaded installers are `DocReady_1.0.0_x64-setup.exe`, `DocReady_1.0.0_universal.dmg`, `DocReady_1.0.0_amd64.deb`, and `DocReady_1.0.0_amd64.AppImage`, with a stable `DocReady_x64-setup.exe` alias for website downloads. The Windows endpoint returned HTTP 206 for a byte-range request, the expected 187,757,440-byte total length, and valid MZ/PE executable headers. The web build verified the release asset through HTTP before enabling the CTA.
+
+These are successful compilation, packaging and download checks. OS installation, graphical interaction and real double-click/Open With behavior have not been exercised in this executor. Installers are unsigned. Full inline PDF editing remains incomplete as described above. Web and desktop use separate local storage, with the existing encrypted backup/restore workflow available for deliberate transfer.

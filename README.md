@@ -134,3 +134,26 @@ Ordinary backups use the pinned JSZip build at `/libs/jszip.min.js`, cached with
 ## Third-party assets
 
 Dependency versions and license identifiers are pinned in `package-lock.json`. The production build contains license and notice files from the installed runtime packages under `dist/licenses/`. It includes the [Tesseract language data](https://github.com/tesseract-ocr/tessdata_best), locally hosted Fontsource fonts, and PDF.js auxiliary assets. The DocReadyApp logo and test fixtures were created for this project.
+
+## Desktop release and a fresh GitHub checkout
+
+The desktop source and releases are at https://github.com/themaveric-alt/DocReady. Web utility access remains separate from the native-only reader route. Windows, macOS universal and Linux installers are available from the published v1.0.0 release. They are unsigned and need user-side OS testing.
+
+A fresh source checkout prepares pinned local runtime assets before building.
+
+```sh
+npm ci
+node scripts/prepare-native-assets.mjs
+npm run models:prepare
+npm run background:prepare
+npm run build
+```
+
+With Tauri prerequisites installed, generate the application icons and build the platform installer. Use `nsis` on Windows, `dmg` on macOS, or `deb,appimage` on Linux.
+
+```sh
+npx @tauri-apps/cli@2 icon public/icons/icon-512.png
+npx @tauri-apps/cli@2 build --bundles nsis
+```
+
+Version tags such as `v1.0.0` must match the version in the Tauri configuration. The GitHub release workflow builds all three platforms and publishes installers after all jobs pass. See `WEB-DESKTOP-SEPARATION.md` for runtime gates, asset verification, download fallback behavior and remaining reader limitations.
