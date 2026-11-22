@@ -1,4 +1,5 @@
 name: Build and release DocReady desktop
+# Binary fixture integrity is verified by the test suite before packaging.
 on:
   workflow_dispatch:
   push:
