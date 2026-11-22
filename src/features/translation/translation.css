@@ -1,0 +1,294 @@
+.translation-studio {
+  --translation-border: #e3e9fa;
+  --translation-accent: #5038ae;
+}
+.translation-steps {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.55rem;
+  margin: 0 0 1.1rem;
+  padding: 0;
+}
+.translation-steps li {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.65rem;
+  font-weight: 600;
+  border: 1px solid var(--translation-border);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.82);
+  color: #475572;
+  font-size: 0.85rem;
+}
+.translation-steps li span {
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  min-width: 1.55rem;
+  height: 1.55rem;
+  background: #eff0ff;
+  color: #553bb3;
+}
+.translation-steps li[aria-current] {
+  background: linear-gradient(135deg, #e9f2ff, #eee8ff);
+  border-color: #c7bafa;
+  color: #492f9b;
+}
+.translation-intake,
+.translation-review-grid,
+.translation-compare {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  align-items: start;
+}
+.translation-review {
+  scroll-margin-top: 78px;
+  padding-top: 1rem;
+}
+.translation-review .section-head {
+  align-items: center;
+  gap: 0.75rem;
+}
+.translation-review .section-head .action-row {
+  margin: 0;
+}
+.translation-more {
+  margin-top: 0.65rem;
+}
+.translation-check {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.86rem;
+}
+.translation-advanced {
+  margin: 0.75rem 0;
+  padding: 0.65rem 0.8rem;
+  border: 1px solid var(--translation-border);
+  border-radius: 12px;
+}
+.translation-advanced summary {
+  cursor: pointer;
+  font-weight: 650;
+  color: #443082;
+}
+.translation-advanced[open] summary {
+  margin-bottom: 0.65rem;
+}
+.translation-model {
+  padding: 0.8rem;
+  background: linear-gradient(125deg, #f0f6ff, #f5efff);
+  border: 1px solid var(--translation-border);
+  border-radius: 14px;
+}
+.translation-model small {
+  display: block;
+  color: #475572;
+}
+.translation-model .action-row {
+  margin: 0.45rem 0 0;
+}
+.translation-status {
+  display: grid;
+  gap: 0.35rem;
+  padding: 0.7rem 0.2rem;
+  color: #4e329f;
+}
+.translation-status progress {
+  width: 100%;
+  accent-color: #6a56cc;
+}
+.translation-blocks {
+  display: grid;
+  gap: 0.65rem;
+  max-height: 650px;
+  overflow: auto;
+  margin: 0.7rem 0;
+}
+.translation-block {
+  border: 1px solid var(--translation-border);
+  border-radius: 12px;
+  padding: 0.7rem;
+  min-width: 0;
+}
+.translation-block.selected {
+  border-color: #9b82ef;
+  background: #fbf9ff;
+}
+.translation-block textarea {
+  font-family: 'Noto Sans Devanagari', Arial, sans-serif;
+  overflow-wrap: anywhere;
+  resize: vertical;
+  max-height: 350px;
+}
+.translation-paging {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.85rem;
+}
+.translation-pdf-source {
+  max-height: 560px;
+  overflow: auto;
+  border-radius: 10px;
+  position: relative;
+  background: #edf0f6;
+}
+.translation-pdf-source img {
+  display: block;
+  margin: 0 auto;
+}
+.translation-image-stage {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+}
+.translation-image-stage img,
+.translation-image-output {
+  display: block;
+  width: 100%;
+  border-radius: 9px;
+}
+.translation-box-marker {
+  position: absolute;
+  display: grid;
+  place-items: start;
+  padding: 2px 5px;
+  border: 1px dashed #5a4fc3;
+  border-radius: 4px;
+  color: #211573;
+  background: #eae1ff79;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: move;
+  touch-action: none;
+  overflow: hidden;
+}
+.translation-box-marker.selected {
+  outline: 2px solid #6547bf;
+}
+.translation-studio .translated-paper {
+  max-height: 560px;
+  overflow: auto;
+  border: 1px solid #e5e9f1;
+  border-radius: 9px;
+}
+.translation-studio .translation-positioned {
+  min-width: 100%;
+}
+[data-accent='lilac'] {
+  --ink: #573aae;
+  --tint: #eee7ff;
+}
+.translation-cards .tool-card {
+  padding: 1.35rem;
+  min-height: 150px;
+  background: linear-gradient(146deg, #fff, #f7f2ff);
+}
+.translation-subnav {
+  grid-column: 1/-1;
+}
+.sidebar nav .translation-subnav a,
+.mobile-nav .translation-subnav a {
+  padding-left: 2.2rem;
+  font-size: 0.87rem;
+}
+@media (max-width: 850px) {
+  .translation-intake,
+  .translation-review-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 550px) {
+  .translation-steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .translation-compare {
+    grid-template-columns: 1fr;
+  }
+  .translation-review .section-head {
+    align-items: flex-start;
+  }
+}
+
+.translated-paper {
+  color: #182137;
+  background: #fff;
+  overflow-wrap: anywhere;
+  line-height: 1.56;
+}
+.translation-doc-page {
+  margin-bottom: 16px;
+  padding: 12px 18px;
+}
+.translation-doc-page p,
+.translation-doc-page h2,
+.translation-doc-page h3 {
+  margin: 0 0 0.65em;
+  font-family: inherit;
+  letter-spacing: normal;
+}
+.translation-doc-page h2 {
+  font-size: 1.3em;
+  line-height: 1.4;
+}
+.translation-doc-page h3 {
+  font-size: 1.12em;
+}
+.translation-doc-page p[data-role='list'] {
+  padding-left: 1.1em;
+  text-indent: -0.8em;
+}
+.translation-doc-page pre {
+  white-space: pre-wrap;
+  font-family: monospace;
+}
+.translation-doc-page table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1em;
+}
+.translation-doc-page td {
+  border: 1px solid #c9ced8;
+  padding: 0.4em;
+  vertical-align: top;
+}
+.translation-page-number {
+  font-size: 0.8em;
+  color: #546380;
+  margin-bottom: 1.2em;
+}
+.translation-bilingual {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.4em 1.15em;
+}
+.translation-bilingual-row {
+  display: contents;
+}
+.translation-pair {
+  margin-bottom: 1.25em;
+  border-bottom: 1px solid #ccd3de;
+}
+.translation-pair span {
+  font-size: 0.8em;
+  color: #546380;
+}
+.translation-positioned {
+  position: relative;
+  width: 640px;
+  transform-origin: top left;
+}
+.translation-positioned-block {
+  position: absolute;
+  line-height: 1.5;
+}
+.translation-positioned-block p,
+.translation-positioned-block h2 {
+  margin: 0;
+  font-size: inherit;
+  line-height: 1.5;
+}

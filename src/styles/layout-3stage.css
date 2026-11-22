@@ -1,0 +1,41 @@
+.tool-journey { --journey-radius: 12px; }
+.tool-journey .panel, .tool-journey .dropzone { border-radius: var(--journey-radius); }
+.journey-steps { list-style: none; display: flex; gap: 24px; padding: 0; margin: 24px 0 12px; color: #637083; font-size: 12px; }
+.journey-steps li { display: flex; align-items: center; gap: 8px; }
+.journey-steps li > span { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: #e9edf5; }
+.journey-steps [aria-current] { color: #3838b3; font-weight: 700; }
+.journey-steps [aria-current] > span { background: #5757f5; color: white; }
+.journey-privacy { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; color: #47615b; font-size: 12px; margin-bottom: 24px; }
+.journey-privacy small { color: #637083; }
+.tool-journey[data-stage="1"] .tool-layout > .panel:not(:first-child) { display: none; }
+.tool-journey[data-stage="1"] .tool-layout { display: block; max-width: 780px; margin-inline: auto; }
+.tool-journey[data-stage="1"] .tool-layout > .panel:first-child { padding: clamp(20px, 4vw, 44px); }
+.tool-journey[data-stage="2"] .tool-layout { grid-template-columns: minmax(0, 7fr) minmax(260px, 3fr); align-items: start; }
+.tool-journey .tool-layout > .tool-controls { grid-column: 2; grid-row: 1 / span 8; position: sticky; top: 90px; max-height: calc(100dvh - 108px); overflow-y: auto; }
+.tool-journey .tool-controls > .action-row { position: sticky; bottom: -1px; background: #fff; padding-block: 12px; z-index: 2; }
+.tool-journey .tool-controls > .action-row > .btn-primary { flex: 1; min-width: 100%; }
+.tool-journey .tool-layout > .full { grid-column: 1; }
+.tool-journey[data-stage="3"] .tool-layout > .panel:first-child:not(.result-panel):not(:has(.result-panel)),
+.tool-journey[data-stage="3"] .tool-layout > .tool-controls:not(:has(.result-panel)) { display: none; }
+.journey-complete { display: grid; gap: 8px; margin-block: 24px; padding: 24px; background: #eef8f3; border: 1px solid #b9d6c6; border-radius: 12px; }
+.journey-complete strong { font-size: 22px; color: #21563c; }
+.journey-complete span { font-size: 14px; color: #47615b; }
+.journey-next { display: flex; gap: 12px; flex-wrap: wrap; margin: 24px 0; }
+@media (max-width: 800px) {
+  .journey-steps { gap: 8px; font-size: 10px; justify-content: space-between; }
+  .journey-steps li { gap: 5px; }
+  .journey-steps li > span { width: 22px; height: 22px; flex-shrink: 0; }
+  .tool-journey[data-stage="2"] .tool-layout { grid-template-columns: minmax(0, 1fr); }
+  .tool-journey .tool-layout > .tool-controls { grid-column: 1; grid-row: auto; position: static; max-height: none; overflow: visible; order: 9; }
+  .tool-journey .result-actions { width: 100%; }
+  .tool-journey .result-actions .btn { flex: 1; }
+}
+@media (prefers-reduced-motion: no-preference) { .journey-complete { animation: journey-appear 180ms ease-out; } }
+@keyframes journey-appear { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.camera-entry { display: flex; flex-direction: column; width: 100%; gap: 14px; min-height: 210px; justify-content: center; margin-bottom: 20px; padding: 26px; white-space: normal; text-align: center; }
+.camera-entry strong { font-size: clamp(18px, 3vw, 24px); }
+.camera-entry span { font-size: 12px; font-weight: 400; line-height: 1.6; }
+.camera-viewfinder { position: relative; margin-top: 16px; border-radius: 12px; overflow: hidden; background: #172033; }
+.camera-viewfinder video { width: 100%; display: block; }
+.camera-alignment { position: absolute; inset: 10% 12% 18%; border: 2px solid rgba(255,255,255,.9); border-radius: 6px; box-shadow: 0 0 0 100px rgba(0,0,0,.18); pointer-events: none; }
+.camera-viewfinder > span { position: absolute; bottom: 4%; left: 0; right: 0; text-align: center; color: white; font-size: 12px; text-shadow: 0 1px 4px #172033; }

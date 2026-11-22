@@ -1,0 +1,64 @@
+{
+  "en-hi": {
+    "revision": "7aad72006a1588a9c3485ed6203aed99eebbc872",
+    "files": {
+      "config.json": {
+        "bytes": 1389,
+        "sha256": "2f7015bbf571018afd1a365d1ade99a648bc89edf3146be93ec0e23cbffd6302"
+      },
+      "generation_config.json": {
+        "bytes": 293,
+        "sha256": "d5ed4557b625766a952b6840deb40ec48fb7fb7e3a26014fa5f677e78bed0404"
+      },
+      "tokenizer.json": {
+        "bytes": 6679560,
+        "sha256": "f493d2d245a353cf9cb3d7f92ef60fd8d65f88efc91d73a1e22ee0f714a68928"
+      },
+      "tokenizer_config.json": {
+        "bytes": 282,
+        "sha256": "afb1524d71a7f14b031f41bd0e72c994b48a447c95ac565aba3fdb1f2707ebfe"
+      },
+      "onnx/encoder_model_int8.onnx": {
+        "bytes": 51164441,
+        "sha256": "8b53ce50ba917cf4b77d6713a01cb767d16a6a92fe4a56bec4d3576fb9d1e4e2",
+        "gzipBytes": 36835592
+      },
+      "onnx/decoder_model_merged_int8.onnx": {
+        "bytes": 58438702,
+        "sha256": "7c21712321e7a02aa1f0f676b4beeef8cdccd0c295cdc642eea97991ce59b180",
+        "gzipBytes": 41905862
+      }
+    }
+  },
+  "hi-en": {
+    "revision": "99853100ed9d932987a6816e8cf7b1b6742a6116",
+    "files": {
+      "config.json": {
+        "bytes": 1376,
+        "sha256": "871af963159a6d00721312fc21782633a389461b6dab23c76cd7c0e68236764d"
+      },
+      "generation_config.json": {
+        "bytes": 293,
+        "sha256": "be22547557d41d19e39168d15ff37b0ed4accc2c2875f9ab7172df10ac558b95"
+      },
+      "tokenizer.json": {
+        "bytes": 6578153,
+        "sha256": "bcf130f7fd0c371040618d74b6f19cf252d73c6734443676016302e4b94d78bb"
+      },
+      "tokenizer_config.json": {
+        "bytes": 280,
+        "sha256": "c70075dfbc0b9811f62f81f6220eeb7b9733d263018087bf4ddee9d92eb2e14f"
+      },
+      "onnx/encoder_model_int8.onnx": {
+        "bytes": 50743065,
+        "sha256": "f68f37830f7dc0877c34ca3c4f3dfc85e1c6681997f50ca61f87e5ab61f9f0bc",
+        "gzipBytes": 35302122
+      },
+      "onnx/decoder_model_merged_int8.onnx": {
+        "bytes": 58014034,
+        "sha256": "9ea11042f365661df0eb7a5e81a327f32ed1fd4e3ab57c6aa400a5cecee95679",
+        "gzipBytes": 39755230
+      }
+    }
+  }
+}

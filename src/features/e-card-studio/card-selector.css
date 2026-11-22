@@ -1,0 +1,19 @@
+.govt-selector { margin:24px 0; }
+.govt-selector-heading { margin-bottom:22px; }
+.govt-selector-heading > span { color:#6159a4; font-size:11px; font-weight:800; letter-spacing:.1em; }
+.govt-selector-heading h2 { font-size:clamp(23px,3vw,32px); margin:10px 0; }
+.govt-selector-heading p { color:#59657a; font-size:13px; max-width:650px; line-height:1.65; }
+.govt-selector-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+.govt-type { position:relative; display:flex; align-items:center; gap:15px; min-width:0; min-height:115px; padding:20px; text-align:left; border:1px solid #e2e7f0; border-top-color:white; background:linear-gradient(130deg,color-mix(in srgb,var(--card-accent) 6%,white),#ffffffad); border-radius:18px; box-shadow:0 6px 20px #29355a08,inset 0 1px #fff; backdrop-filter:blur(16px); transition:transform .18s,border-color .18s,box-shadow .18s; }
+.govt-type > svg { width:56px; height:56px; flex-shrink:0; }
+.govt-type > span:nth-child(2) { min-width:0; flex:1; }
+.govt-type strong { display:block; font-size:15px; color:#172033; line-height:1.4; }
+.govt-type small { display:block; font-size:12px; color:#59657a; margin-top:5px; line-height:1.5; }
+.govt-type-check { width:20px; height:20px; border:1px solid #d6deec; border-radius:50%; color:var(--card-accent); text-align:center; font-size:13px; flex-shrink:0; }
+.govt-type[aria-pressed=true] { border-color:var(--card-accent); box-shadow:0 7px 24px color-mix(in srgb,var(--card-accent) 13%,transparent); }
+.govt-type:focus-visible { outline:3px solid #5757f5; outline-offset:3px; }
+.ecard-quick-export { display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; }
+.ecard-smart-output { margin-top:22px; }
+@media(hover:hover) and (pointer:fine) { .govt-type:not(:disabled):hover { transform:translateY(-2px); border-color:var(--card-accent); } }
+@media(max-width:620px) { .govt-selector-grid { grid-template-columns:1fr; } .govt-type { min-height:100px; padding:16px; } .ecard-quick-export > button { width:100%; } }
+@media(prefers-reduced-motion:reduce) { .govt-type { transition:none; transform:none!important; } }

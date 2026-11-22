@@ -1,0 +1,482 @@
+.ecard-studio {
+  display: grid;
+  gap: 1rem;
+  min-width: 0;
+}
+.ecard-intro {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 1.15rem 1.35rem;
+  border: 1px solid #e7e2fa;
+  border-radius: 1.25rem;
+  background: linear-gradient(115deg, #f4f0ff, #f6fbfc);
+}
+.ecard-intro strong {
+  font-size: 1.09rem;
+  letter-spacing: -0.035em;
+}
+.ecard-intro p {
+  margin: 0.2rem 0 0;
+  font-size: 0.9rem;
+  color: #536278;
+}
+.ecard-intro-icon {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  color: #5a45cf;
+  background: #eae3fd;
+  border-radius: 1rem;
+  flex: none;
+}
+.ecard-intro-icon svg + svg {
+  position: absolute;
+  right: -0.25rem;
+  bottom: -0.12rem;
+  color: #167b72;
+  background: #e3f5f1;
+  border-radius: 0.3rem;
+  padding: 0.12rem;
+}
+.ecard-privacy {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-inline-start: auto;
+  padding: 0.4rem 0.63rem;
+  border-radius: 2rem;
+  color: #1d6659;
+  background: #e1f3ed;
+  font-size: 0.81rem;
+  font-weight: 700;
+}
+.ecard-job:empty {
+  display: none;
+}
+.ecard-job {
+  display: grid;
+  gap: 0.45rem;
+  justify-items: start;
+}
+.ecard-job .progress {
+  width: 100%;
+}
+.ecard-work {
+  display: grid;
+  gap: 1rem;
+  min-width: 0;
+}
+.ecard-upload-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  gap: 1rem;
+}
+.ecard-upload-grid .upload-wrap,
+.ecard-source-tools,
+.ecard-studio .field {
+  min-width: 0;
+}
+.ecard-actions,
+.ecard-card-actions,
+.ecard-crop-controls {
+  display: flex;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.ecard-source-tools .field {
+  margin-block-end: 0.55rem;
+}
+.ecard-review-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin-block-end: 1rem;
+}
+.ecard-review-top p {
+  margin: 0.22rem 0;
+}
+.ecard-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 233px), 1fr));
+  gap: 0.8rem;
+}
+.ecard-card {
+  display: grid;
+  gap: 0.52rem;
+  padding: 0.74rem;
+  border: 1px solid #e7e2f5;
+  border-radius: 1.06rem;
+  background: #fcfbff;
+  min-width: 0;
+  box-shadow: 0 3px 10px #2e1c5710;
+}
+.ecard-card header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+.ecard-card header > div {
+  min-width: 0;
+}
+.ecard-card small {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #536278;
+  font-size: 0.76rem;
+  margin-top: 0.18rem;
+}
+.ecard-card-image {
+  background: #efedf7;
+  border-radius: 0.66rem;
+  display: grid;
+  place-items: center;
+  min-height: 8rem;
+  overflow: hidden;
+  padding: 0.4rem;
+}
+.ecard-card-image img {
+  display: block;
+  width: 100%;
+  height: clamp(7.4rem, 16vw, 11rem);
+  object-fit: contain;
+}
+.ecard-warn {
+  display: block;
+  color: #87510a;
+  font-weight: 680;
+  font-size: 0.85rem;
+}
+.ecard-reviewed {
+  color: #226958;
+  font-size: 0.81rem;
+}
+.ecard-card p {
+  margin: 0;
+}
+.ecard-card-actions .btn {
+  min-height: 2.55rem;
+  padding-inline: 0.55rem;
+}
+.ecard-per-card,
+.ecard-ocr,
+.ecard-print-settings {
+  padding-top: 0.7rem;
+  border-top: 1px solid #e9e6f3;
+}
+.ecard-ocr,
+.ecard-print-settings {
+  margin-top: 1rem;
+}
+.ecard-per-card summary,
+.ecard-ocr summary,
+.ecard-print-settings summary {
+  cursor: pointer;
+  font-weight: 720;
+  color: #433b61;
+  padding: 0.25rem 0 0.5rem;
+}
+.ecard-ocr-actions {
+  align-items: end;
+}
+.ecard-print {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+  gap: 1rem;
+  align-items: start;
+  scroll-margin-top: 5rem;
+  min-width: 0;
+}
+.ecard-layout-column {
+  display: grid;
+  gap: 1rem;
+  min-width: 0;
+}
+.ecard-modes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.47rem;
+}
+.ecard-modes button {
+  display: grid;
+  justify-items: center;
+  gap: 0.3rem;
+  min-height: 3.9rem;
+  padding: 0.45rem 0.2rem;
+  border: 1px solid #e8e4f1;
+  background: #fff;
+  color: #534b6b;
+  border-radius: 0.72rem;
+  font: inherit;
+  font-size: 0.77rem;
+  font-weight: 690;
+  cursor: pointer;
+}
+.ecard-modes button:hover {
+  border-color: #a89bea;
+}
+.ecard-modes button[aria-pressed='true'] {
+  background: #eeebff;
+  border-color: #9386ed;
+  color: #4b38ab;
+}
+.ecard-sizing {
+  margin-top: 1.12rem;
+}
+.ecard-sizing p {
+  font-size: 0.82rem;
+}
+.ecard-sizing .check,
+.ecard-print-checks .check {
+  font-size: 0.86rem;
+  margin-top: 0.5rem;
+}
+.ecard-fields {
+  display: grid;
+  gap: 0.58rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 0.4rem 0;
+}
+.ecard-fields input,
+.ecard-fields select {
+  width: 100%;
+  min-width: 0;
+}
+.ecard-paper-panel {
+  background: #fcfbff;
+}
+.ecard-paper {
+  position: relative;
+  width: min(100%, 28rem);
+  margin: 0.7rem auto 1rem;
+  border: 1px solid #ded9e8;
+  background: #fff;
+  box-shadow: 0 0.6rem 1.45rem #25164a18;
+}
+.ecard-preview-meta {
+  font-size: 0.84rem;
+}
+.ecard-paper-card {
+  position: absolute;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  border-radius: 0;
+  z-index: 1;
+}
+button.ecard-paper-card {
+  touch-action: none;
+  cursor: grab;
+  outline: 1px dashed #9879dd;
+}
+button.ecard-paper-card:active {
+  cursor: grabbing;
+}
+.ecard-paper-card img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  pointer-events: none;
+}
+.ecard-grid-guides,
+.ecard-paper-guides {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.ecard-grid-guides {
+  background:
+    linear-gradient(
+      90deg,
+      transparent calc(50% - 0.5px),
+      #b4a4d7 calc(50% - 0.5px),
+      #b4a4d7 calc(50% + 0.5px),
+      transparent calc(50% + 0.5px)
+    ),
+    linear-gradient(
+      0deg,
+      transparent calc(50% - 0.5px),
+      #b4a4d7 calc(50% - 0.5px),
+      #b4a4d7 calc(50% + 0.5px),
+      transparent calc(50% + 0.5px)
+    );
+}
+.ecard-dpi {
+  list-style: none;
+  padding: 0;
+  margin: 0.78rem 0 0;
+  display: grid;
+  gap: 0.48rem;
+}
+.ecard-dpi li {
+  display: grid;
+  gap: 0.18rem;
+  font-size: 0.83rem;
+}
+.ecard-dpi small {
+  color: #536278;
+}
+.ecard-actionbar {
+  position: sticky;
+  bottom: 0.55rem;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.4rem;
+  padding: 0.65rem;
+  border: 1px solid #e0daee;
+  border-radius: 1rem;
+  background: #ffffffed;
+  box-shadow: 0 0.45rem 2rem #30234724;
+  backdrop-filter: blur(14px);
+}
+.ecard-warning {
+  margin: 0.6rem 0;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #f1d8a5;
+  background: #fff7e7;
+  color: #774b1e;
+  border-radius: 0.65rem;
+  font-size: 0.86rem;
+}
+.ecard-crop-source {
+  position: relative;
+  width: min(100%, calc(43vh * var(--crop-source-ratio, 1)));
+  max-width: 100%;
+  margin: 1.05rem auto;
+  user-select: none;
+}
+.ecard-edge-inputs { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; padding:14px; border:1px solid var(--border,#dce2ed); border-radius:12px; }
+.ecard-edge-inputs legend { font-size:13px; padding-inline:6px; }
+.ecard-crop-source img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  max-height: none;
+  object-fit: contain;
+}
+.ecard-crop-source svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: visible;
+}
+.ecard-crop-source polygon {
+  fill: #6959c331;
+  stroke: #6355cc;
+  stroke-width: 1.5;
+  vector-effect: non-scaling-stroke;
+}
+.ecard-handle {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  touch-action: none;
+  display: grid;
+  place-items: center;
+  width: 2.55rem;
+  height: 2.55rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: crosshair;
+}
+.ecard-handle::before {
+  content: '';
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: #654ed6;
+  border: 2px solid white;
+  box-shadow: 0 0 0 1px #493b93;
+}
+.ecard-crop-result {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin: 0.7rem 0;
+  font-size: 0.85rem;
+}
+.ecard-crop-result img {
+  max-width: 45%;
+  max-height: 6rem;
+  border: 1px solid #ddd6ed;
+  border-radius: 0.45rem;
+}
+.ecard-password {
+  display: grid;
+  gap: 0.75rem;
+}
+.ecard-password .btn {
+  justify-self: start;
+}
+@media (max-width: 860px) {
+  .ecard-print,
+  .ecard-upload-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .ecard-paper {
+    width: min(100%, 24rem);
+  }
+  .ecard-actionbar {
+    justify-content: flex-start;
+  }
+}
+@media (max-width: 460px) {
+  .ecard-intro {
+    padding: 0.86rem;
+    gap: 0.63rem;
+  }
+  .ecard-intro p {
+    font-size: 0.8rem;
+  }
+  .ecard-privacy {
+    margin-inline-start: 0;
+  }
+  .ecard-actionbar {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    padding: 0.48rem;
+    gap: 0.35rem;
+  }
+  .ecard-actionbar .btn {
+    grid-column: span 2;
+    padding-inline: 0.3rem;
+    white-space: nowrap;
+  }
+  .ecard-actionbar .btn:nth-child(n + 4) {
+    grid-column: span 3;
+  }
+  .ecard-crop-controls .btn {
+    padding-inline: 0.6rem;
+  }
+  .ecard-paper {
+    width: 100%;
+  }
+}
+
+.ecard-camera {
+  display: block;
+  width: 100%;
+  max-height: 55vh;
+  object-fit: contain;
+  border-radius: 0.8rem;
+  background: #171329;
+  margin: 0.65rem 0;
+}

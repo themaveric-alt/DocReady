@@ -1,0 +1,80 @@
+name: Build and release DocReady desktop
+on:
+  workflow_dispatch:
+  push:
+    tags: ['v*']
+    branches: ['main']
+    paths: ['.github/workflows/build-desktop.yml']
+permissions:
+  contents: read
+concurrency:
+  group: desktop-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: windows-latest
+            target: x86_64-pc-windows-msvc
+            bundles: nsis
+          - os: macos-latest
+            target: universal-apple-darwin
+            bundles: dmg
+          - os: ubuntu-22.04
+            target: x86_64-unknown-linux-gnu
+            bundles: deb,appimage
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.target == 'universal-apple-darwin' && 'aarch64-apple-darwin,x86_64-apple-darwin' || matrix.target }}
+      - if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y libwebkit2gtk-4.1-dev libayatana-appindicator3-dev librsvg2-dev patchelf
+      - run: npm ci
+        env:
+          ONNXRUNTIME_NODE_INSTALL: skip
+      - run: node scripts/prepare-native-assets.mjs
+      - run: npm run models:prepare
+      - run: npm run background:prepare
+      - run: npm test
+      - run: npx @tauri-apps/cli@2 icon public/icons/icon-512.png
+      - run: npx @tauri-apps/cli@2 build --target ${{ matrix.target }} --bundles ${{ matrix.bundles }}
+      - run: node scripts/collect-desktop.mjs
+        env:
+          DOCREADY_TARGET: ${{ matrix.target }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: DocReady-${{ matrix.target }}
+          path: desktop-artifacts/*
+          if-no-files-found: error
+  release:
+    if: github.event_name == 'push'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      RELEASE_TAG: ${{ github.ref_type == 'tag' && github.ref_name || 'v1.0.0' }}
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: DocReady-*
+          path: desktop-artifacts
+          merge-multiple: true
+      - name: Publish complete installer set
+        shell: bash
+        run: |
+          if ! gh release view "$RELEASE_TAG" > /dev/null 2>&1; then
+            gh release create "$RELEASE_TAG" --draft --title "DocReady $RELEASE_TAG" --notes "DocReady by Trenish. Local document tools, encrypted vault and desktop PDF reader. Installers are unsigned."
+          fi
+          gh release upload "$RELEASE_TAG" desktop-artifacts/* --clobber
+          gh release edit "$RELEASE_TAG" --draft=false --latest
